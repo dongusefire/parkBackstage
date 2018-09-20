@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WuKourWvfIuhCbeaM9KGES6b1x54SHx1"></script>
+		<style type="text/css">
+			body{
+				min-width: 1000px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<!--左侧栏-->
+		<div class="nav">
+			<div class="logo">
+				<img src="img/logo.png">
+			</div>
+			<div class="navList">
+				<a id="line-distance" class="item-box active" >
+					<span class="item-icon"><img src="img/whole.png"></span>
+					<span class="item-title">全局</span>
+				</a>
+				<a id="line-fun" class="item-box">
+					<span class="item-icon"><img src="img/fun.png"></span>
+					<span class="item-title">功能</span>
+				</a>
+				<a id="line-event" class="item-box">
+					<span class="item-icon"><img src="img/shi.png"></span>
+					<span class="item-title">事件</span>
+				</a>
+			</div>
+			<div class="time">
+				<p>更新时间</p>
+				<p id="show"></p>
+			</div>
+		</div>
+		<div class="section">
+			<iframe src="html/all.html" id="iframe" scrolling="yes" onload="window.parent"></iframe>
+		</div>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/index.js"></script>
+		<script type="text/javascript">
+			$('.nav a').click(function(){   //点击切换的按钮
+				var id = $(this).attr('id');  //
+				if(!$(this).hasClass('active')){
+					var iframe = $('#iframe');
+					if(id=='line-distance'){
+						iframe.attr('src','html/all.html')
+					}else if(id=="line-event"){
+						iframe.attr('src','html/event.html')
+					}else{
+						iframe.attr('src','html/fun.html')
+					};
+					$(this).addClass('active').siblings().removeClass('active');
+				};
+			})
+	</script>		
+	</body>
+</html>

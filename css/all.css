@@ -1,0 +1,355 @@
+/*全局页面*/
+.content{
+	width:auto;
+	height:768px;
+}
+.content .contentTop{
+	width:auto;
+	height:447px;
+	padding:11px 12px 3px 7px;
+    position: relative;
+}
+.content .contentTop .tapDiv{
+	float: left;
+	width:786px;
+	height:447px;
+	overflow: hidden;
+	border-radius:3px;
+	border:1px solid #ececec;
+	margin-right:4px;
+}
+.content .contentTop .tapDiv .mapImg{
+    width:786px;
+	height:51px;
+	background: #31a778;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+       
+}
+.content .contentTop .tapDiv .mapImg img{
+   width:24px;
+   height:24px;
+   display: inline-block;
+   padding-left:16px;
+}
+.content .contentTop .mesDiv{
+	float:left;
+	width:329px;
+	height:447px;
+	overflow: hidden;
+	border-radius:3px;
+	border:1px solid #ececec;
+	position: absolute;
+	left:796px;
+	top:11px;
+}
+.content .contentTop .mesDiv .mes{
+	height:50px;
+	line-height: 50px;
+	border-bottom: 1px solid #ececec;
+}
+.content .contentTop .mesDiv .mes img{
+	width:24px;
+	height:24px;
+	display: inline-block;
+	vertical-align: middle;
+	padding-left:12px;
+}
+.content .contentTop .mesDiv .mes span{
+	font-size:14px;
+	color:#7b828c;
+	padding-left:10px;
+}
+.content .contentTop .mesDiv .deal p{
+	padding-left:15px;
+
+}
+.content .contentTop .mesDiv .deal p span:nth-child(1){
+	font-size:14px;
+	color:#b8b9bb;
+}
+.content .contentTop .mesDiv .deal p span:nth-child(2){
+	width:170px;
+	padding-right:25px;
+	float: right;
+	text-align: center;
+	font-size:14px;
+	color:#777879;
+	overflow: hidden; /*自动隐藏文字*/
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;
+}
+/*.content .contentTop .mesDiv .deal p .even{
+	 background: url(../img/ricon.png) no-repeat 160px center;
+}*/
+.content .contentTop .mesDiv .deal p:nth-child(odd){
+	background: #f9fcff;
+	height:70px;
+	line-height: 70px;
+}
+.content .contentTop .mesDiv .deal p:nth-child(even){
+	background: #fff;
+	height:62px;
+	line-height:62px;
+}
+.content .contentBottom{
+	position:relative;
+	width:auto;
+	height:281px;
+	padding:8px 12px 0 7px;
+}
+.content .contentBottom .viewPark{
+	float: left;
+	height:281px;
+	width:439px;
+	overflow: hidden;
+	border-radius:3px;
+	border:1px solid #ececec;
+}
+.content .contentBottom .viewPark .view{
+	height:30px;
+	line-height: 30px;
+	border-bottom: 1px solid #ececec;
+}
+.content .contentBottom .viewPark .view img{
+	width:20px;
+	height:20px;
+	display: inline-block;
+	vertical-align:middle;
+	padding-left:12px;
+}
+.content .contentBottom .viewPark .view span{
+	font-size:14px;
+	color:#7b828c;
+	padding-left:10px;
+}
+.content .contentBottom .viewPark .viewp{
+	position: relative;
+}
+.content .contentBottom .viewPark .viewp .address{
+	float:left;
+	margin:35px 0;
+}
+.content .contentBottom .viewPark .viewp .address p{
+	padding:0 15px;
+	font-size:14px;
+	color:#b2b2b2;
+	height:60px;
+	line-height: 60px;
+	/*display:inline-block;*/
+	width:130px;
+	 overflow: hidden; /*自动隐藏文字*/
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;
+	
+}
+.content .contentBottom .viewPark .viewp .progress{
+	/*float:left;*/
+	width:234px;
+	height:173px;
+	background: #f9fcff;
+	margin:40px 40px;
+	position:absolute;
+	left:130px;
+	top:0;
+}
+.content .contentBottom .viewPark .viewp .progress .proLeft{
+	float:left;
+	margin:20px 0;
+	width:50px;
+	height:20px;
+	position: absolute;
+	top:0;
+	left:65px;
+}
+.content .contentBottom .viewPark .viewp .progress .proLeft p{
+	width:40px;
+	font-size:14px;
+	color:#fff;
+	height:20px;
+	line-height: 20px;
+	display: block;
+	margin:0 0 37px 0;
+	background: #e46057;
+	text-align: right;
+	padding-right:10px;
+}
+.content .contentBottom .viewPark .viewp .progress .proRight{
+	float:left;
+	margin:20px 0;
+	width:50px;
+	height:20px;
+	position: absolute;
+	top:0;
+	left:120px;
+}
+.content .contentBottom .viewPark .viewp .progress .proRight p{
+	width:40px;
+	font-size:14px;
+	color:#fff;
+	height:20px;
+	line-height: 20px;
+	display: block;
+	margin:0 0 37px 0;
+	background: #4aaaa5;
+	padding-left:10px;
+}
+.content .contentBottom .dataSatis{
+	float: left;
+	width:284px;
+	height:281px;
+	overflow: hidden;
+	border-radius:3px;
+	border:1px solid #ececec;
+}
+.content .contentBottom .dataSatis .data{
+	height:30px;
+	line-height: 30px;
+	border-bottom: 1px solid #ececec;
+}
+.content .contentBottom .dataSatis .data img{
+	width:20px;
+	height:20px;
+	display: inline-block;
+	vertical-align:middle;
+	padding-left:12px;
+}
+.content .contentBottom .dataSatis .data span{
+	font-size:14px;
+	color:#7b828c;
+	padding-left:10px;
+}
+.content .contentBottom .dataSatis .record p{
+	height:41px;
+	line-height:41px;
+	padding-left:15px;
+	font-size:14px;
+	color:#b8b9bb;
+	position: relative;
+}
+.content .contentBottom .dataSatis .record p:after{
+	content: '';
+	position: absolute;
+	left:0;
+	right:0;
+	bottom:0;
+	height:1px;
+	background: #f3f3f3;
+}
+.content .contentBottom .dataSatis .record p span{
+	float: right;
+	padding-right:40px;
+	text-align: center;
+}
+.content .contentBottom .dataSatis .record p .local{
+	color:#faa05e;
+}
+.content .contentBottom .dataSatis .record p .all{
+	color:#7c9fb5;
+}
+.content .contentBottom .dataSatis .record p.active{
+	color:#fff;
+	background: #e46057;
+}
+.content .contentBottom .dataSatis .record p span.active{
+	color:#fff;
+}
+.content .contentBottom .dataState{
+	float: right;
+	width:391px;
+	height:281px;
+	overflow: hidden;
+	border-radius:3px;
+	border:1px solid #ececec;
+	position: absolute;
+	left:736px;
+	top:10px;
+}
+.content .contentBottom .dataState .state{
+	height:30px;
+	line-height: 30px;
+	border-bottom: 1px solid #ececec;
+}
+.content .contentBottom .dataState .state img{
+	width:20px;
+	height:20px;
+	display: inline-block;
+	vertical-align:middle;
+	padding-left:12px;
+}
+.content .contentBottom .dataState .state span{
+	font-size:14px;
+	color:#7b828c;
+	padding-left:10px;
+}
+.content .contentBottom .dataState .stateList{
+	position: relative;
+}
+.content .contentBottom .dataState .stateList p{
+	height:50px;
+	line-height:50px;
+	border-bottom:1px solid #ececec;
+	padding-left:12px;
+	font-size:15px;
+	color:#b2b2b2;
+}
+.content .contentBottom .dataState .stateList p span:nth-child(1){
+	width:140px;
+	padding-left:5px;
+	display:inline-block;
+	overflow: hidden; /*自动隐藏文字*/
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;
+    
+}
+.content .contentBottom .dataState .stateList p span:nth-child(2){
+	float: right;
+	padding-right:20px;
+	text-align: center;
+	width:200px;
+	display: inline-block;
+	overflow: hidden; /*自动隐藏文字*/
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;
+}
+.content .contentBottom .dataState .stateList .rate{
+	float:right;
+	padding-right:29px;
+	color:#565656;
+}
+.content .contentBottom .dataState .stateList .layuipro{
+	position: absolute;
+	top:123px;
+	left:160px;
+	width:120px;
+	height:7px;
+	border-radius: 5px;
+	background: #eaf0f5;
+}
+.content .contentBottom .dataState .stateList .lapro{
+	background: #638ca6;
+	max-width:100%;
+}
+.content .contentBottom .dataState .stateList .layup{
+	position: absolute;
+	top:173px;
+	left:160px;
+	width:120px;
+	height:7px;
+	border-radius: 5px;
+	background: #eaf0f5;
+}
+.content .contentBottom .dataState .stateList .layuipr{
+	position: absolute;
+	top:223px;
+	left:160px;
+	width:120px;
+	height:7px;
+	border-radius: 5px;
+	background: #eaf0f5;
+}
+#map{
+	width:786px;
+	height:395px;
+}

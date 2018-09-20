@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/event.css"/>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=3plOWwmAaFtTuTSNkS8fqCbEzL1Y2deC"></script>
+		
+	</head>
+	<body>
+		<!--事件页面-->
+	    <div class="main">
+	    	<div class="mainMap">
+	    	    <div class="mapImg"><img src="../img/map.png"></div>
+	    	    <div id="tarmap"></div>
+	    	</div>
+	    	<div class="parkMes">
+	    		<div class="pastPark">
+	    			<p class="Mes"><img src="../img/his.png"><span>历史停车饱和度信息</span></p>
+	    			<div class="hisPark">
+		    			<p><span>最近一天</span><span>300</span><canvas id="my_html" width="40" height="40" style="width:40px; height:40px;" ></canvas></p>
+						<p><span>最近第二天</span><span>300</span><canvas id="my_h" width="40" height="40" style="width:40px; height:40px;" ></canvas></p>
+						<p><span>最近第三天</span><span>300</span><canvas id="myl" width="40" height="40" style="width:40px; height:40px;" ></canvas></p>
+						<p><span>最近一周</span><span>500</span><canvas id="my_m" width="40" height="40" style="width:40px; height:40px;"  ></canvas></p>
+						<p><span>最近两周</span><span>800</span><canvas id="my_" width="40" height="40" style="width:40px; height:40px;" ></canvas></p>
+						<p><span>最近一个月</span><span>800</span><canvas id="mym" width="40" height="40" style="width:40px; height:40px;"  ></canvas></p>
+	    			</div>
+	    		</div>
+	    		<div class="lineMes">
+	    			<p class="List"><img src="../img/pp.png"><span>停车场历史信息及违规信息</span></p>
+	    			<div class="navMes">
+	    				<p>
+	    				   <span class="time">2018-07-11 10:00:00</span>
+	    				   <span class="pael">市民广场停车场</span>	
+	    				   <span class="name">徐xx</span>	
+	    				   <span class="state">完成信用后付款</span>	
+	    				   <span class="score"><span><img src="../img/xin.png"></span><span>1</span></span>	
+	    				</p>
+	    				<p>
+	    				   <span class="time">2018-07-11 10:00:00</span>
+	    				   <span class="pael">市民广场停车场</span>	
+	    				   <span class="name">徐xx</span>	
+	    				   <span class="state state1">未在规定时间内完成订单</span>	
+	    				   <span class="score ascore"><span><img src="../img/cxin.png"></span><span>1</span></span>	
+	    				</p>
+	    				<p>
+	    				   <span class="time">2018-07-11 10:00:00</span>
+	    				   <span class="pael">市民广场停车场</span>	
+	    				   <span class="name">徐xx</span>	
+	    				   <span class="state">完成信用后付款</span>	
+	    				  <span class="score"><span><img src="../img/xin.png"></span><span>1</span></span>		
+	    				</p>
+	    				<p>
+	    				   <span class="time">2018-07-11 10:00:00</span>
+	    				   <span class="pael">市民广场停车场</span>	
+	    				   <span class="name">徐xx</span>	
+	    				   <span class="state">完成信用后付款</span>	
+	    				   <span class="score"><span><img src="../img/xin.png"></span><span>1</span></span>	
+	    				</p>
+	    				<p>
+	    				   <span class="time">2018-07-11 10:00:00</span>
+	    				   <span class="pael">市民广场停车场</span>	
+	    				   <span class="name">徐xx</span>	
+	    				   <span class="state">完成信用后付款</span>	
+	    				   <span class="score"><span><img src="../img/xin.png"></span><span>1</span></span>		
+	    				</p>
+	    				<p>
+	    				   <span class="time">2018-07-11 10:00:00</span>
+	    				   <span class="pael">市民广场停车场</span>	
+	    				   <span class="name">徐xx</span>	
+	    				   <span class="state">完成信用后付款</span>	
+	    				   <span class="score"><span><img src="../img/xin.png"></span><span>1</span></span>	
+	    				</p>
+	    				<p>
+	    				   <span class="time">2018-07-11 10:00:00</span>
+	    				   <span class="pael">市民广场停车场</span>	
+	    				   <span class="name">徐xx</span>	
+	    				   <span class="state">完成信用后付款</span>	
+	    				   <span class="score"><span><img src="../img/xin.png"></span><span>1</span></span>	
+	    				</p>
+	    				<p>
+	    				   <span class="time">2018-07-11 10:00:00</span>
+	    				   <span class="pael">市民广场停车场</span>	
+	    				   <span class="name">徐xx</span>	
+	    				   <span class="state">完成信用后付款</span>	
+	    				   <span class="score"><span><img src="../img/xin.png"></span><span>1</span></span>	
+	    				</p>
+	    				<p>
+	    				   <span class="time">2018-07-11 10:00:00</span>
+	    				   <span class="pael">市民广场停车场</span>	
+	    				   <span class="name">徐xx</span>	
+	    				   <span class="state">完成信用后付款</span>	
+	    				   <span class="score"><span><img src="../img/xin.png"></span><span>1</span></span>	
+	    				</p>
+	    				<p>
+	    				   <span class="time">2018-07-11 10:00:00</span>
+	    				   <span class="pael">市民广场停车场</span>	
+	    				   <span class="name">徐xx</span>	
+	    				   <span class="state">完成信用后付款</span>	
+	    				   <span class="score"><span><img src="../img/xin.png"></span><span>1</span></span>	
+	    				</p>
+	    				
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <script src="../js/progress.js"></script>
+		<script src="../js/jquery-1.11.2.min.js"></script>
+		<script src="../js/index.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				   var p1 = new Progress({
+				        el:'my_html',//canvas元素id
+				        deg:10,//绘制角度
+				        timer:10,//绘制时间
+				        lineWidth:5,//线宽
+				        lineBgColor:'#bcbcbc',//底圆颜色
+				        lineColor:'#587e96',//动态圆颜色
+				        textColor:'#fff',//文本颜色
+				        fontSize:10,//字体大小
+				        circleRadius:11//圆半径
+				    });
+				    var p1 = new Progress({
+				        el:'my_h',//canvas元素id
+				        deg:10,//绘制角度
+				        timer:10,//绘制时间
+				        lineWidth:5,//线宽
+				        lineBgColor:'#bcbcbc',//底圆颜色
+				        lineColor:'#31a778',//动态圆颜色
+				        textColor:'#fff',//文本颜色
+				        fontSize:10,//字体大小
+				        circleRadius:11//圆半径
+				    });
+				     var p1 = new Progress({
+				        el:'myl',//canvas元素id
+				        deg:10,//绘制角度
+				        timer:10,//绘制时间
+				        lineWidth:5,//线宽
+				        lineBgColor:'#bcbcbc',//底圆颜色
+				        lineColor:'#ffcb23',//动态圆颜色
+				        textColor:'#fff',//文本颜色
+				        fontSize:10,//字体大小
+				        circleRadius:11//圆半径
+				    });
+				    var p1 = new Progress({
+				        el:'my_m',//canvas元素id
+				        deg:10,//绘制角度
+				        timer:10,//绘制时间
+				        lineWidth:5,//线宽
+				        lineBgColor:'#bcbcbc',//底圆颜色
+				        lineColor:'#ba70ae',//动态圆颜色
+				        textColor:'#fff',//文本颜色
+				        fontSize:10,//字体大小
+				        circleRadius:11//圆半径
+				    });
+
+                    var p1 = new Progress({
+				        el:'my_',//canvas元素id
+				        deg:10,//绘制角度
+				        timer:10,//绘制时间
+				        lineWidth:5,//线宽
+				        lineBgColor:'#bcbcbc',//底圆颜色
+				        lineColor:'#fc8737',//动态圆颜色
+				        textColor:'#fff',//文本颜色
+				        fontSize:10,//字体大小
+				        circleRadius:11//圆半径
+				    });
+				    var p1 = new Progress({
+				        el:'mym',//canvas元素id
+				        deg:10,//绘制角度
+				        timer:10,//绘制时间
+				        lineWidth:5,//线宽
+				        lineBgColor:'#bcbcbc',//底圆颜色
+				        lineColor:'#ff3c5d',//动态圆颜色
+				        textColor:'#fff',//文本颜色
+				        fontSize:10,//字体大小
+				        circleRadius:11//圆半径
+				    });
+			});
+			// 百度地图API功能
+			var map = new BMap.Map("tarmap");
+			var point = new BMap.Point(116.404, 39.915);
+			map.centerAndZoom(point, 15);
+			// 编写自定义函数,创建标注
+			function addMarker(point){
+			  var marker = new BMap.Marker(point);
+			  map.addOverlay(marker);
+			}
+			// 随机向地图添加25个标注
+			var bounds = map.getBounds();
+			var sw = bounds.getSouthWest();
+			var ne = bounds.getNorthEast();
+			var lngSpan = Math.abs(sw.lng - ne.lng);
+			var latSpan = Math.abs(ne.lat - sw.lat);
+			for (var i = 0; i < 5; i ++) {
+				var point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7));
+				addMarker(point);
+			}
+	</script>				
+	</body>
+</html>

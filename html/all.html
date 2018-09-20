@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/layui.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/all.css"/>
+	<script type="text/javascript"
+			src="http://api.map.baidu.com/api?v=2.0&ak=WuKourWvfIuhCbeaM9KGES6b1x54SHx1"></script>
+
+</head>
+<body>
+<!--全局页面-->
+<div class="content">
+	<div class="contentTop">
+		<div class="tapDiv">
+			<div class="mapImg"><img src="../img/map.png"></div>
+			<div id="map"></div>
+		</div>
+		<div class="mesDiv">
+			<p class="mes"><img src="../img/mes.png"><span>区块链交易信息</span></p>
+			<div class="deal">
+
+			</div>
+		</div>
+	</div>
+	<div class="contentBottom">
+		<div class="viewPark">
+			<p class="view"><img src="../img/park.png"><span>车位紧张示意图</span></p>
+			<div class="viewp">
+				<div class="address">
+				</div>
+				<div class="progress">
+					<div class="proLeft">
+					</div>
+					<div class="proRight">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dataSatis">
+			<p class="data"><img src="../img/data.png"><span>停车数据统计</span></p>
+			<div class="record">
+			</div>
+		</div>
+		<div class="dataState">
+			<p class="state"><img src="../img/state.png"><span>区块链数据状态</span></p>
+			<div class="stateList">
+			</div>
+		</div>
+	</div>
+</div>
+<script src="../js/layui.js"></script>
+<script src="../js/jquery-1.11.2.min.js"></script>
+<script src="../js/index.js"></script>
+<script type="text/javascript">
+    layui.use('element', function () {
+        var element = layui.element;
+    });
+    $(function () {
+        $('.record p').click(function () {
+            $(this).addClass('active').siblings().removeClass('active');
+        })
+    });
+    // 百度地图API功能
+    var map = new BMap.Map("map");    // 创建Map实例
+    map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+
+    var myCity = new BMap.LocalCity();
+    myCity.get(myFun);
+    //添加地图类型控件
+    map.addControl(new BMap.MapTypeControl({
+        mapTypes: [
+            BMAP_NORMAL_MAP,
+            BMAP_HYBRID_MAP
+        ]
+    }));
+    map.enableScrollWheelZoom(true);//开启鼠标滚轮缩放
+
+    getData();
+
+    function myFun(result) {
+        var cityName = result.name;
+        map.setCenter(cityName);
+    }
+
+
+    function getData() {
+        var sUrl = "http://bj.ecosysnet.com:7106/api/supervise/main";
+        $.get(sUrl, function (result) {
+            if (result.code === 200) {
+                showParkingList(result.data.park_list);
+                showParkSpaceInfo(result.data);
+                showPaymentInfo(result.data.latest_payment);
+                showBlockInfo(result.data.latest_block);
+            }
+        });
+    }
+
+
+    function showPaymentInfo(data) {
+
+        sBlcok =
+            "                <p><span>区块HASH</span><span>"+ data.blockHash +"笔</span></p>\n" +
+            "                <p><span>区块高度</span><span>"+ data.blockNumber + "</span></p>\n" +
+            "                <p><span>钱包地址</span><span class=\"even\">"+ data.address +"</span></p>\n" +
+            "                <p><span>支出方</span><span class=\"even\">"+ data.from +"</span></p>\n" +
+            "                <p><span>接收方</span><span class=\"even\">"+ data.to +"</span></p>\n" +
+            "                <p><span>资产代码</span><span>"+ data.code +"</span></p>\n" +
+            "                <p><span>交易时间</span><span>"+ data.timestamp +"</span></p>\n";
+        $(".deal").empty();
+        $(".deal").append(sBlcok);
+    }
+
+    function showBlockInfo(data) {
+        sPayMent =
+            "                <p><span>交易数量</span><span>"+ data.txn_count +"笔</span></p>\n" +
+            "                <p><span>账本HASH</span><span>"+ data.ledgerHash + "</span></p>\n" +
+            "                <p><span>账本关闭时间</span><span>"+ data.closeTime +"</span></p>\n" +
+            //"                <p><span>ledgerVersion</span><span class=\"even\">"+ data.ledgerVersion +"</span></p>\n" +
+            "                <p><span>父账本HASH</span><span class=\"even\">"+ data.parentLedgerHash +"</span></p>\n" +
+            "                <p><span>父账本关闭时间</span><span class=\"even\">"+ data.parentCloseTime +"</span></p>\n";
+
+        $(".stateList").empty();
+        $(".stateList").append(sPayMent);
+    }
+
+    function showParkSpaceInfo(data) {
+        sRecord = /*"<p>局部预警信息<span class=\"local\">"+ data.park_space.status +"</span></p>"+*/
+            "<p class=\"active\">预警停车场数量<span>" + data.waring_num + "</span></p>" +
+            "<p>系统总体状态<span class=\"all\">" + data.park_space.status + "</span></p>" +
+            "<p>正在使用车位<span>" + (data.park_space.total - data.park_space.free) + "</span></p>" +
+            "<p>可使用车位数<span>" + data.park_space.free + "</span></p>" +
+            "<p>合计停车位数<span>" + data.park_space.total + "</span></p>";
+
+        $(".record").empty();
+        $(".record").append(sRecord);
+    }
+
+
+    function showParkingList(data) {
+        var data_info = [];
+        var item = [];
+
+        //绘制地图点位
+        //生成车位列表
+        sParkName = "";
+        sParkFree = "";
+        sParkNum = "";
+        var num = 0;
+
+        for (index in data) {
+            item = [data[index].longitude, data[index].latitude, data[index].parking_lot_name];
+            data_info.push(item);
+            num++;
+            if (num <= 3) {
+                sParkName += "<p>" + data[index].parking_lot_name + "</p>";
+                sParkFree += "<p>" + data[index].free_number + "</p>";
+                sParkNum += "<p>" + data[index].number + "</p>";
+            }
+
+        }
+
+
+        $(".address").empty();
+        $(".address").append(sParkName);
+        $(".proLeft").empty();
+        $(".proLeft").append(sParkFree);
+        $(".proRight").empty();
+        $(".proRight").append(sParkNum);
+
+
+        var opts = {
+            enableMessage: true//设置允许信息窗发送短息
+        };
+        for (var i = 0; i < data_info.length; i++) {
+            var marker = new BMap.Marker(new BMap.Point(data_info[i][0], data_info[i][1]));  // 创建标注
+            var content = data_info[i][2];
+            map.addOverlay(marker);               // 将标注添加到地图中
+            addClickHandler(content, marker);
+        }
+
+        function addClickHandler(content, marker) {
+            marker.addEventListener("click", function (e) {
+                    openInfo(content, e)
+                }
+            );
+        }
+
+        function openInfo(content, e) {
+            var p = e.target;
+            var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+            var infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象
+            map.openInfoWindow(infoWindow, point); //开启信息窗口
+        }
+    }
+
+</script>
+</body>
+</html>
